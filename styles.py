@@ -15,9 +15,6 @@ def create_button_style():
         font_weight="bold",
         width=200,  # Fixed width for buttons
         text_align="center",
-        border_radius=25,  # Rounded corners
-        border_width=2,  # Border width
-        border_color=COLOR_TEXT,  # Border color
     )
 
 def create_label_style():

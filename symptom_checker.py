@@ -1,39 +1,62 @@
-import toga
-from styles import create_button_style, create_label_style, create_box_style
+from kivy.uix.screenmanager import Screen
+from kivy.uix.button import Button
+from kivy.uix.label import Label
+from kivy.uix.textinput import TextInput
+from kivy.uix.boxlayout import BoxLayout
 
-class SymptomChecker:
-    def __init__(self, main_window, on_back_click):
-        self.main_window = main_window
-        self.user_input = ""
-        self.on_back_click = on_back_click
-
-        # UI Elements
-        self.symptom_input = toga.TextInput(
-            placeholder="Describe your symptoms...",
-            style=create_label_style()
-        )
-        self.submit_button = toga.Button(
-            "Submit",
-            on_press=self.generate_diagnosis,
-            style=create_button_style()
-        )
-        self.diagnosis_label = toga.Label(
-            "Your diagnosis will appear here.",
-            style=create_label_style()
-        )
-        self.back_button = toga.Button(
-            "Back to Main Menu",
-            on_press=self.on_back_click,
-            style=create_button_style()
-        )
+class SymptomCheckerScreen(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
         # Layout
-        self.box = toga.Box(
-            children=[self.symptom_input, self.submit_button, self.diagnosis_label, self.back_button],
-            style=create_box_style()
-        )
+        layout = BoxLayout(orientation="vertical", padding=20, spacing=20)
 
-    def generate_diagnosis(self, widget):
-        self.user_input = self.symptom_input.value
-        # Simulate AI diagnosis (replace with actual AI integration)
-        self.diagnosis_label.text = f"Based on your symptoms ({self.user_input}), you may have a common cold."
+        # Symptom Input
+        self.symptom_input = TextInput(
+            hint_text="Describe your symptoms...",
+            size_hint=(1, None),
+            height=100,
+            multiline=True
+        )
+        layout.add_widget(self.symptom_input)
+
+        # Submit Button
+        self.submit_button = Button(
+            text="Submit",
+            size_hint=(None, None),
+            size=(200, 50),
+            background_color=(0.24, 0.48, 0.28, 1),  # Medium green
+            color=(1, 1, 1, 1),  # White text
+            bold=True
+        )
+        self.submit_button.bind(on_press=self.generate_diagnosis)
+        layout.add_widget(self.submit_button)
+
+        # Diagnosis Label
+        self.diagnosis_label = Label(
+            text="Your diagnosis will appear here.",
+            font_size=14,
+            bold=True,
+            color=(0.07, 0.21, 0.14, 1)  # Dark green
+        )
+        layout.add_widget(self.diagnosis_label)
+
+        # Back Button
+        self.back_button = Button(
+            text="Back to Main Menu",
+            size_hint=(None, None),
+            size=(200, 50),
+            background_color=(0.24, 0.48, 0.28, 1),  # Medium green
+            color=(1, 1, 1, 1),  # White text
+            bold=True
+        )
+        self.back_button.bind(on_press=self.go_to_main_menu)
+        layout.add_widget(self.back_button)
+
+        self.add_widget(layout)
+
+    def generate_diagnosis(self, instance):
+        self.diagnosis_label.text = f"Based on your symptoms ({self.symptom_input.text}), you may have a common cold."
+
+    def go_to_main_menu(self, instance):
+        self.manager.current = "main_menu"

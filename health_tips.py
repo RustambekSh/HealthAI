@@ -1,24 +1,37 @@
-import toga
-from styles import create_button_style, create_label_style, create_box_style
+from kivy.uix.screenmanager import Screen
+from kivy.uix.button import Button
+from kivy.uix.label import Label
+from kivy.uix.boxlayout import BoxLayout
 
-class HealthTips:
-    def __init__(self, main_window, on_back_click):
-        self.main_window = main_window
-        self.on_back_click = on_back_click
-
-        # UI Elements
-        self.tips_label = toga.Label(
-            "1. Drink plenty of water.\n2. Wash your hands regularly.\n3. Get enough sleep.",
-            style=create_label_style()
-        )
-        self.back_button = toga.Button(
-            "Back to Main Menu",
-            on_press=self.on_back_click,
-            style=create_button_style()
-        )
+class HealthTipsScreen(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
         # Layout
-        self.box = toga.Box(
-            children=[self.tips_label, self.back_button],
-            style=create_box_style()
+        layout = BoxLayout(orientation="vertical", padding=20, spacing=20)
+
+        # Health Tips Label
+        self.tips_label = Label(
+            text="1. Drink plenty of water.\n2. Wash your hands regularly.\n3. Get enough sleep.",
+            font_size=14,
+            bold=True,
+            color=(0.07, 0.21, 0.14, 1)  # Dark green
         )
+        layout.add_widget(self.tips_label)
+
+        # Back Button
+        self.back_button = Button(
+            text="Back to Main Menu",
+            size_hint=(None, None),
+            size=(200, 50),
+            background_color=(0.24, 0.48, 0.28, 1),  # Medium green
+            color=(1, 1, 1, 1),  # White text
+            bold=True
+        )
+        self.back_button.bind(on_press=self.go_to_main_menu)
+        layout.add_widget(self.back_button)
+
+        self.add_widget(layout)
+
+    def go_to_main_menu(self, instance):
+        self.manager.current = "main_menu"
