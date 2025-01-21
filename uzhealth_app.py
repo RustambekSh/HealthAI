@@ -6,14 +6,10 @@ from health_tips import HealthTips
 
 class UzHealthApp(toga.App):
     def startup(self):
-        # Initialize the main window
         self.main_window = toga.MainWindow(title="UzHealth AI", size=(400, 600))
-
-        # Show the main menu
         self.show_main_menu()
 
     def show_main_menu(self):
-        # Create the main menu
         self.main_menu = MainMenu(
             self.main_window,
             on_ai_click=self.show_ai_screen,
