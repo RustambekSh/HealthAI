@@ -130,3 +130,4 @@ class MainMenuScreen(Screen):
         self.clinic_button.canvas.ask_update()
         self.tips_button.canvas.ask_update()
         self.header_label.canvas.ask_update()
+
