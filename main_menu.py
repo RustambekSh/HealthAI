@@ -96,23 +96,33 @@ class MainMenuScreen(Screen):
         self.rect.size = instance.size
 
     def show_language_dropdown(self, instance):
+        # Create a dropdown menu
         dropdown = DropDown()
+
+        # Add language options to the dropdown
         for lang_code, lang_data in LANGUAGES.items():
             btn = Button(
-                text=lang_data['language_name'],  # This must match the key in LANGUAGES
+                text=lang_data["app_name"],  # Display the app name in the selected language
                 size_hint_y=None,
                 height=50,
-                background_color=(0.24, 0.48, 0.15, 1),
-                color=(1, 1, 1, 1)
+                background_color=(0.24, 0.48, 0.15, 1),  # Medium green
+                color=(1, 1, 1, 1)  # White text
             )
-            btn.bind(on_release=lambda btn, lc=lang_code: self.switch_language(lc))
+            btn.bind(on_release=lambda btn: self.switch_language(btn.text))
             dropdown.add_widget(btn)
+
+        # Open the dropdown menu
         dropdown.open(instance)
 
-    def switch_language(self, lang_code):
-        print(f"Switching to language code: {lang_code}")
-        app = App.get_running_app()
-        app.switch_language(lang_code)
+    def switch_language(self, language_name):
+        print(f"Language selected: {language_name}")  # Debugging
+        # Find the language code based on the app name
+        for lang_code, lang_data in LANGUAGES.items():
+            if lang_data["app_name"] == language_name:
+                app = App.get_running_app()
+                print(f"Switching to language code: {lang_code}")  # Debugging
+                app.switch_language(lang_code)
+                break
 
     def go_to_symptom_checker(self, instance):
         self.manager.current = "symptom_checker"
