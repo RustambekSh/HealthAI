@@ -83,6 +83,7 @@ class SymptomCheckerScreen(Screen):
     def go_to_main_menu(self, instance):
         self.manager.current = "main_menu"
 
+
     def update_language(self):
         app = App.get_running_app()
         lang = app.current_language
