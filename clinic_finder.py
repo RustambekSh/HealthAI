@@ -11,7 +11,6 @@ from languages import LANGUAGES
 
 
 class ClinicFinderScreen(Screen):
-    # Add StringProperties for dynamic text
     map_text = StringProperty("Click the button below to find nearby clinics.")
     find_clinics_text = StringProperty("Find Clinics")
     back_text = StringProperty("Back to Main Menu")
@@ -19,30 +18,25 @@ class ClinicFinderScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        # Layout
         layout = BoxLayout(orientation="vertical", padding=20, spacing=20)
-
-        # Set background color
         with layout.canvas.before:
-            Color(0.52, 0.66, 0.28, 1)  # Light green background
+            Color(0.52, 0.66, 0.28, 1)  
             self.rect = Rectangle(pos=layout.pos, size=layout.size)
 
-        # Bind the rectangle size to the layout size
         layout.bind(pos=self.update_rect, size=self.update_rect)
 
-        # Map Label
+
         self.map_label = Label(
-            text=self.map_text,  # Bind to StringProperty
+            text=self.map_text, 
             font_size=14,
             bold=True,
-            color=(0.07, 0.21, 0.14, 1)  # Dark green
+            color=(0.07, 0.21, 0.14, 1)  
         )
         apply_font(self.map_label)
         layout.add_widget(self.map_label)
 
-        # Find Clinics Button
         self.find_clinics_button = Button(
-            text=self.find_clinics_text,  # Bind to StringProperty
+            text=self.find_clinics_text,  
             size_hint=(None, None),
             size=(200, 50),
             background_color=(0.24, 0.48, 0.15, 1),
@@ -53,9 +47,8 @@ class ClinicFinderScreen(Screen):
         self.find_clinics_button.bind(on_press=self.find_nearby_clinics)
         layout.add_widget(self.find_clinics_button)
 
-        # Back Button
         self.back_button = Button(
-            text=self.back_text,  # Bind to StringProperty
+            text=self.back_text, 
             size_hint=(None, None),
             size=(200, 50),
             background_color=(0.24, 0.48, 0.15, 1),
@@ -78,18 +71,17 @@ class ClinicFinderScreen(Screen):
         lang = app.current_language
         translations = LANGUAGES[lang]
 
-        # Update StringProperties
         self.map_text = translations["find_nearby_clinics"]
         self.find_clinics_text = translations["find_clinics"]
         self.back_text = translations["back_to_main_menu"]
 
-        # Force UI refresh
+
         self.map_label.canvas.ask_update()
         self.find_clinics_button.canvas.ask_update()
         self.back_button.canvas.ask_update()
 
     def find_nearby_clinics(self, instance):
-        latitude = 41.2995  # Tashkent coordinates
+        latitude = 41.2995  
         longitude = 69.2401
         google_maps_url = f"https://www.google.com/maps/search/clinics/@{latitude},{longitude},15z"
         webbrowser.open(google_maps_url)
