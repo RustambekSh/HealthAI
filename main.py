@@ -9,7 +9,6 @@ from languages import LANGUAGES
 
 class UzHealthAIApp(App):
     def build(self):
-        
         self.screen_manager = ScreenManager(transition=FadeTransition())
         self.current_language = "en"
 
