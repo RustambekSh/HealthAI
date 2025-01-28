@@ -12,6 +12,7 @@ LANGUAGES = {
         "find_nearby_clinics": "Click the button below to find nearby clinics.",
         "contact_info": "Contact: info@uzhealthai.com | Support: support@uzhealthai.com",
     },
+    
     "uz": {
         "language_name": "O'zbekcha",
         "app_name": "UzHealthAI",
@@ -25,6 +26,7 @@ LANGUAGES = {
         "find_nearby_clinics": "Yaqin atrofdagi klinikalarni topish uchun quyidagi tugmani bosing.",
         "contact_info": "Aloqa: info@uzhealthai.com | Yordam: support@uzhealthai.com",
     },
+    
     "ru": {
         "language_name": "Русский",
         "app_name": "UzHealthAI",
