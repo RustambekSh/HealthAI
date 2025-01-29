@@ -9,10 +9,7 @@ from styles import apply_font
 class HealthTipsScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-
-        
-        layout = BoxLayout(orientation="vertical", padding=20, spacing=20)
-        
+        layout = BoxLayout(orientation="vertical", padding=20, spacing=20)    
         with layout.canvas.before:
             Color(0.52, 0.66, 0.28, 1)  
             self.rect = Rectangle(pos=layout.pos, size=layout.size)
