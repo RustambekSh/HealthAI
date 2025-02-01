@@ -103,7 +103,6 @@ class MainMenuScreen(Screen):
             btn.bind(on_release=lambda btn, lc=lang_code: self.switch_language(lc))
             dropdown.add_widget(btn)
 
-
         dropdown.open(instance)
 
     def switch_language(self, lang_code):
