@@ -8,6 +8,7 @@ from styles import apply_font
 import pyrebase
 from languages import LANGUAGES
 
+
 class LoginScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
