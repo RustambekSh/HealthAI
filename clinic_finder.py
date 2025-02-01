@@ -9,7 +9,6 @@ import webbrowser
 from kivy.app import App
 from languages import LANGUAGES
 
-
 class ClinicFinderScreen(Screen):
     map_text = StringProperty("Click the button below to find nearby clinics.")
     find_clinics_text = StringProperty("Find Clinics")
