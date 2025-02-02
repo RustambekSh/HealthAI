@@ -8,7 +8,6 @@ from styles import apply_font
 import pyrebase
 from languages import LANGUAGES
 
-
 class LoginScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -27,7 +26,6 @@ class LoginScreen(Screen):
             multiline=False
         )
         self.layout.add_widget(self.email_input)
-
         self.password_input = TextInput(
             hint_text="Password",
             size_hint=(1, None),
@@ -36,7 +34,6 @@ class LoginScreen(Screen):
             password=True
         )
         self.layout.add_widget(self.password_input)
-
         self.login_button = Button(
             text="Login",
             size_hint=(None, None),
