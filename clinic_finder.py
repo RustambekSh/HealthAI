@@ -21,10 +21,7 @@ class ClinicFinderScreen(Screen):
         with layout.canvas.before:
             Color(0.52, 0.66, 0.28, 1)  
             self.rect = Rectangle(pos=layout.pos, size=layout.size)
-
         layout.bind(pos=self.update_rect, size=self.update_rect)
-
-
         self.map_label = Label(
             text=self.map_text, 
             font_size=14,
