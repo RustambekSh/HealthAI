@@ -99,7 +99,6 @@ class LoginScreen(Screen):
         app = App.get_running_app()
         lang = app.current_language
         translations = LANGUAGES[lang]
-
         self.email_input.hint_text = translations["email"]
         self.password_input.hint_text = translations["password"]
         self.login_button.text = translations["login"]
