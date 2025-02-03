@@ -4,6 +4,7 @@ from symptom_checker import SymptomChecker
 from clinic_finder import ClinicFinder
 from health_tips import HealthTips
 
+
 class UzHealthApp(toga.App):
     def startup(self):
         self.main_window = toga.MainWindow(title="UzHealth AI", size=(400, 600))
