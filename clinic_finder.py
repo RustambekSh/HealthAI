@@ -9,6 +9,7 @@ import webbrowser
 from kivy.app import App
 from languages import LANGUAGES
 
+
 class ClinicFinderScreen(Screen):
     map_text = StringProperty("Click the button below to find nearby clinics.")
     find_clinics_text = StringProperty("Find Clinics")
@@ -42,7 +43,6 @@ class ClinicFinderScreen(Screen):
         apply_font(self.find_clinics_button)
         self.find_clinics_button.bind(on_press=self.find_nearby_clinics)
         layout.add_widget(self.find_clinics_button)
-
         self.back_button = Button(
             text=self.back_text, 
             size_hint=(None, None),
