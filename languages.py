@@ -13,6 +13,7 @@ LANGUAGES = {
         "contact_info": "Contact: info@uzhealthai.com | Support: support@uzhealthai.com",
     },
     
+    
     "uz": {
         "language_name": "O'zbekcha",
         "app_name": "UzHealthAI",
