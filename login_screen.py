@@ -8,6 +8,7 @@ from styles import apply_font
 import pyrebase
 from languages import LANGUAGES
 
+
 class LoginScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -58,7 +59,6 @@ class LoginScreen(Screen):
         apply_font(self.signup_button)  
         self.signup_button.bind(on_press=self.signup)
         self.layout.add_widget(self.signup_button)
-
         
         self.error_label = Label(
             text="",
