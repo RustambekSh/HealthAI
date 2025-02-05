@@ -9,6 +9,7 @@ import webbrowser
 from kivy.app import App
 from languages import LANGUAGES
 
+
 class ClinicFinderScreen(Screen):
     map_text = StringProperty("Click the button below to find nearby clinics.")
     find_clinics_text = StringProperty("Find Clinics")
@@ -60,6 +61,7 @@ class ClinicFinderScreen(Screen):
         self.rect.pos = instance.pos
         self.rect.size = instance.size
 
+    
     def update_language(self):
         """Update all text elements when language changes"""
         app = App.get_running_app()
