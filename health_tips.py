@@ -17,7 +17,7 @@ class HealthTipsScreen(Screen):
        
         layout.bind(pos=self.update_rect, size=self.update_rect)
         self.tips_label = Label(
-            text="1. Drink plenty of water.\n2. Wash your hands regularly.\n3. Get enough sleep.",
+            text="1. Drink plenty of water.\n2. Wash your hands regularly.\n3. Get enough sleep. \n3. Take care of yourself everyday!",
             font_size=14,
             bold=True,
             color=(0.07, 0.21, 0.14, 1)  
