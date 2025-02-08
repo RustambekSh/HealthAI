@@ -6,7 +6,7 @@ from kivy.uix.label import Label
 from kivy.graphics import Color, Rectangle
 from styles import apply_font
 from languages import LANGUAGES
-from kivy.app import App 
+from kivy.app import App  
 
 class MainMenuScreen(Screen):
     def __init__(self, **kwargs):
