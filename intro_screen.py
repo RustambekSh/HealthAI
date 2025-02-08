@@ -3,7 +3,7 @@ from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.graphics import Color, Rectangle
 from kivy.clock import Clock
-from styles import apply_font
+from styles import apply_font 
 from languages import LANGUAGES
 from kivy.app import App  
 
