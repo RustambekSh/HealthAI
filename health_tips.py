@@ -32,7 +32,7 @@ class HealthTipsScreen(Screen):
             size=(200, 50),
             background_color=(0.24, 0.48, 0.15, 1),  
             color=(1, 1, 1, 1),  
-            bold=True
+            bold=False
         )
         apply_font(self.back_button)  
         self.back_button.bind(on_press=self.go_to_main_menu)
