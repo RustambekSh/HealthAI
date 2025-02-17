@@ -2,7 +2,7 @@ import toga
 from main_menu import MainMenu
 from symptom_checker import SymptomChecker
 from clinic_finder import ClinicFinder
-from health_tips import HealthTips
+from health_tips import HealthTips 
 
 
 class UzHealthApp(toga.App):
