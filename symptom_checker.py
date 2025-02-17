@@ -7,7 +7,7 @@ from kivy.graphics import Color, Rectangle
 from styles import apply_font
 from languages import LANGUAGES
 from kivy.app import App  
-
+ 
 class SymptomCheckerScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
