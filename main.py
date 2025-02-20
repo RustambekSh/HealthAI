@@ -6,7 +6,7 @@ from symptom_checker import SymptomCheckerScreen
 from clinic_finder import ClinicFinderScreen
 from health_tips import HealthTipsScreen
 from languages import LANGUAGES
-
+ 
 class UzHealthAIApp(App):
     def build(self):
         self.screen_manager = ScreenManager(transition=FadeTransition())
