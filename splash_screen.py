@@ -3,7 +3,7 @@ from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.graphics import Color, Rectangle 
 from styles import apply_font
- 
+  
 class SplashScreen(Screen):  
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
