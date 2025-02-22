@@ -16,7 +16,7 @@ class UzHealthApp(toga.App):
             on_ai_click=self.show_ai_screen,
             on_clinic_click=self.show_clinic_screen,
             on_tips_click=self.show_tips_screen
-        )
+        ) 
         self.main_window.content = self.main_menu.box
         self.main_window.show()
 
