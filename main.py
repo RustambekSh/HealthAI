@@ -2,7 +2,7 @@ from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, FadeTransition
 from intro_screen import IntroScreen
 from main_menu import MainMenuScreen
-from symptom_checker import SymptomCheckerScreen
+from symptom_checker import SymptomCheckerScreen 
 from clinic_finder import ClinicFinderScreen
 from health_tips import HealthTipsScreen
 from languages import LANGUAGES
