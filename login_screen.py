@@ -4,7 +4,7 @@ from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
 from kivy.graphics import Color, Rectangle
-from styles import apply_font 
+from styles import apply_font
 import pyrebase
 from languages import LANGUAGES
 
