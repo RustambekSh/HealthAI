@@ -1,6 +1,23 @@
-﻿## HealthAI App Based Assistant that helps to maintain good health by giving location based consultations.
+# 🏥 HealthAI: Your AI-Powered Health Assistant 🤖
 
- **Application which contains all the info related to health, AI assitant is trained to give consultation based on your symptoms, also directs you to the clinics nearby if urgent need is important. You can also get daily insights about how to saty healthy.**
- 
- 
+**HealthAI** is an AI-driven healthcare assistant that provides **consultations based on symptoms**, offers **personalized health tips**, and **guides you to the best-ranked clinics nearby** based on your medical needs. 🚀
 
+---
+
+## 🌟 Features
+
+✔️ **Symptom-Based AI Consultation** – Get instant health insights based on symptoms  
+✔️ **Personalized Health Tips** – AI-driven recommendations for better well-being  
+✔️ **Clinic Finder** – Locate the top-rated medical facilities near you  
+✔️ **Multi-Language Support** – Accessible for a global audience  
+✔️ **User-Friendly Interface** – Designed for ease of use  
+
+---
+
+## 🚀 Installation & Setup
+
+1️⃣ Clone this repository:
+
+```bash
+git clone https://github.com/your-username/HealthAI.git
+cd HealthAI
