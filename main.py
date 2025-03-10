@@ -17,7 +17,6 @@ class UzHealthAIApp(App):
         self.screen_manager.add_widget(ClinicFinderScreen(name="clinic_finder"))
         self.screen_manager.add_widget(HealthTipsScreen(name="health_tips"))
         self.screen_manager.current = "intro"
-
         return self.screen_manager
 
     def switch_language(self, language_code):
