@@ -11,7 +11,6 @@ class UzHealthAIApp(App):
     def build(self):
         self.screen_manager = ScreenManager(transition=FadeTransition())
         self.current_language = "en"
-
         self.screen_manager.add_widget(IntroScreen(name="intro"))
         self.screen_manager.add_widget(MainMenuScreen(name="main_menu"))
         self.screen_manager.add_widget(SymptomCheckerScreen(name="symptom_checker"))

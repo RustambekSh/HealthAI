@@ -36,7 +36,7 @@ class IntroScreen(Screen):
     def update_rect(self, instance, value):
         self.rect.pos = instance.pos
         self.rect.size = instance.size
-        slef.react.size = instance.size
+        self.rect.size = instance.size
 
     def go_to_main_menu(self, dt):
         self.manager.current = "main_menu"
