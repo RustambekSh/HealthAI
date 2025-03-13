@@ -85,3 +85,6 @@ class ClinicFinderScreen(Screen):
 
     def go_to_main_menu(self, instance):
         self.manager.current = "main_menu"
+        
+
+        
