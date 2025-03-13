@@ -40,7 +40,7 @@ class SymptomCheckerScreen(Screen):
         self.chat_history = []
         self.setup_ui()
         genai.configure(api_key='') # Put your APi key here
-        self.model = genai.GenerativeModel('gemini-1.5-flash')
+        self.model = genai.GenerativeModel('gemini-1.5-flash') #I was using the Gemini 1.5 flash model
         self.thinking = False
 
     def setup_ui(self):
@@ -62,7 +62,10 @@ class SymptomCheckerScreen(Screen):
             orientation='vertical', 
             spacing=10, 
             size_hint_y=None,
-            padding=(20, 10)
+            padding=(20, 10),
+            bold = True,
+            background_color = (255,255,255),
+            multiline = True  
         )
         self.chat_layout.bind(minimum_height=self.chat_layout.setter('height'))
         self.chat_scroll.add_widget(self.chat_layout)
