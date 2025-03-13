@@ -53,7 +53,7 @@ class SymptomCheckerScreen(Screen):
             Rectangle(pos=header.pos, size=header.size)
         self.header_label = Label(text="Health Assistant", color=(1,1,1,1), bold=True)
         apply_font(self.header_label)
-        header.add_widget(self.header_label)
+        header.add_widget(self.header_label)  
         main_layout.add_widget(header)
         
         # Chat History
