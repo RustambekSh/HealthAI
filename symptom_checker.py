@@ -64,7 +64,7 @@ class SymptomCheckerScreen(Screen):
             size_hint_y=None,
             padding=(20, 10),
             bold = True,
-            background_color = (255,255,255),
+            background_color = (255, 255, 255, 0),
             multiline = True  
         )
         self.chat_layout.bind(minimum_height=self.chat_layout.setter('height'))
