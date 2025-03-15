@@ -54,7 +54,7 @@ class SymptomCheckerScreen(Screen):
         self.header_label = Label(text="Health Assistant", color=(1,1,1,1), bold=True)
         apply_font(self.header_label)
         header.add_widget(self.header_label)  
-        main_layout.add_widget(header)
+        main_layout.add_widget(header)  
         
         # Chat History
         self.chat_scroll = ScrollView()
