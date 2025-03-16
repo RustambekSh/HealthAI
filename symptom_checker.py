@@ -77,8 +77,8 @@ class SymptomCheckerScreen(Screen):
             hint_text="Type your symptoms here...",
             multiline=True,
             background_color=(1, 1, 1, 1),
-            foreground_color=(0.07, 0.21, 0.14, 1),
-            size_hint=(0.8, 1))
+            foreground_color=(0.07, 0.21, 0.14, 1), 
+            size_hint=(0.8, 1)) 
         self.input_field.bind(on_text_validate=self.send_message)
         
         self.send_btn = Button(
