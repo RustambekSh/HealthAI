@@ -41,6 +41,8 @@ class IntroScreen(Screen):
     def go_to_main_menu(self, dt):
         self.manager.current = "main_menu"
         self.dt = dt
+        self.management = 10
+        self.check_point = True
 
     def update_language(self):
         app = App.get_running_app()
