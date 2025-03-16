@@ -87,6 +87,7 @@ class MainMenuScreen(Screen):
     def update_rect(self, instance, value):
         self.rect.pos = instance.pos
         self.rect.size = instance.size
+        self.rect.value = value
 
     def show_language_dropdown(self, instance):
         dropdown = DropDown()
