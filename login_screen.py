@@ -5,7 +5,6 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
 from kivy.graphics import Color, Rectangle
 from styles import apply_font
-import pyrebase
 from languages import LANGUAGES
 
 
@@ -75,6 +74,8 @@ class LoginScreen(Screen):
         self.rect.pos = instance.pos
         self.rect.size = instance.size
 
+
+    #I have deleted login and sign in sections.
     def login(self, instance):
         email = self.email_input.text
         password = self.password_input.text
@@ -94,7 +95,7 @@ class LoginScreen(Screen):
             self.manager.current = "main_menu"
         except Exception as e:
             self.error_label.text = str(e)
-
+    #Language is getting updated here.
     def update_language(self):
         app = App.get_running_app()
         lang = app.current_language
