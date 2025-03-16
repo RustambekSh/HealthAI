@@ -40,6 +40,7 @@ class IntroScreen(Screen):
 
     def go_to_main_menu(self, dt):
         self.manager.current = "main_menu"
+        self.dt = dt
 
     def update_language(self):
         app = App.get_running_app()
