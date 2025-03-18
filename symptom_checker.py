@@ -33,6 +33,7 @@ class ChatBubble(Label):
     def _update_rect(self, instance, value):
         self.rect.pos = instance.pos
         self.rect.size = instance.size
+        self.value = value
 
 class SymptomCheckerScreen(Screen):
     def __init__(self, **kwargs):
@@ -42,6 +43,7 @@ class SymptomCheckerScreen(Screen):
         genai.configure(api_key='') # Put your APi key here
         self.model = genai.GenerativeModel('gemini-1.5-flash') #I was using the Gemini 1.5 flash model
         self.thinking = False
+        self.initiallizer = 0
 
     def setup_ui(self):
         main_layout = BoxLayout(orientation='vertical', spacing=25)
@@ -123,6 +125,7 @@ class SymptomCheckerScreen(Screen):
                 f"Act as a medical assistant. The user says: {user_input}. "
                 "Provide a helpful response with possible causes and suggestions. "
                 "Keep it under 150 words and use simple language."
+                "Just try to be more specific about the consultation."
             )
             self.chat_layout.remove_widget(self.chat_layout.children[0])  # Remove "Thinking..."
             self.add_message(response.text, is_user=False)
