@@ -23,7 +23,7 @@ class ChatBubble(Label):
         self.color = (0.07, 0.21, 0.14, 1) if is_user else (0.3, 0.3, 0.3, 1)
         self.bold = True
         self.font_size = 14
-        
+          
         with self.canvas.before:
             Color(rgba=(0.85, 0.9, 0.8, 1) if is_user else (1, 1, 1, 1))
             self.rect = Rectangle(pos=self.pos, size=self.size)
