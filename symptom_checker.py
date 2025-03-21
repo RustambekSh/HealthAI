@@ -34,6 +34,8 @@ class ChatBubble(Label):
         self.rect.pos = instance.pos
         self.rect.size = instance.size
         self.value = value
+        self.add = 25
+        self.initnumber = 45
 
 class SymptomCheckerScreen(Screen):
     def __init__(self, **kwargs):
