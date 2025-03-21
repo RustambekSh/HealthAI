@@ -109,6 +109,8 @@ class SymptomCheckerScreen(Screen):
     def send_message(self, instance):
         if self.thinking:
             return
+        else:
+            self.instance = instance
             
         user_input = self.input_field.text.strip()
         if not user_input:
@@ -152,4 +154,5 @@ class SymptomCheckerScreen(Screen):
     def on_enter(self):
         self.chat_layout.clear_widgets()
         self.input_field.text = ''
-        self.thinking = False
+        self.thinking = True
+        
