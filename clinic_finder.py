@@ -9,8 +9,7 @@ import webbrowser
 from kivy.app import App
 from languages import LANGUAGES
  
-
-class ClinicFinderScreen(Screen): 
+class ClinicFinderScreen(Screen):
     map_text = StringProperty("Click the button below to find nearby clinics.")
     find_clinics_text = StringProperty("Find Clinics")
     back_text = StringProperty("Back to Main Menu")
@@ -20,14 +19,14 @@ class ClinicFinderScreen(Screen):
 
         layout = BoxLayout(orientation="vertical", padding=20, spacing=20)
         with layout.canvas.before:
-            Color(0.52, 0.66, 0.28, 1)  
+            Color(0.52, 0.66, 0.28, 1)
             self.rect = Rectangle(pos=layout.pos, size=layout.size)
         layout.bind(pos=self.update_rect, size=self.update_rect)
         self.map_label = Label(
-            text=self.map_text, 
+            text=self.map_text,
             font_size=14,
             bold=True,
-            color=(0.07, 0.21, 0.14, 1)  
+            color=(0.07, 0.21, 0.14, 1)
         )
         apply_font(self.map_label)
         layout.add_widget(self.map_label)
