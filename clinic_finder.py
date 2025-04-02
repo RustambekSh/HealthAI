@@ -6,7 +6,7 @@ from kivy.graphics import Color, Rectangle
 from kivy.properties import StringProperty
 from styles import apply_font
 import webbrowser
-from kivy.app import App
+from kivy.app import App. 
 from languages import LANGUAGES
  
 class ClinicFinderScreen(Screen):
