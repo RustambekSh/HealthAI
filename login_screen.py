@@ -5,7 +5,7 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
 from kivy.graphics import Color, Rectangle
 from styles import apply_font
-from languages import LANGUAGES
+from languages import LANGUAGES 
 
 
 class LoginScreen(Screen):
