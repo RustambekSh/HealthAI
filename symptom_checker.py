@@ -10,6 +10,7 @@ from styles import apply_font
 from languages import LANGUAGES 
 from kivy.app import App 
 import google.generativeai as genai
+import os
 
 class ChatBubble(Label):
     def __init__(self, text, is_user=False, **kwargs):
@@ -33,19 +34,20 @@ class ChatBubble(Label):
     def _update_rect(self, instance, value):
         self.rect.pos = instance.pos
         self.rect.size = instance.size
-        self.value = value
-        self.add = 25
-        self.initnumber = 45
 
 class SymptomCheckerScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.chat_history = []
         self.setup_ui()
-        genai.configure(api_key='') # Put your APi key here
-        self.model = genai.GenerativeModel('gemini-1.5-flash') #I was using the Gemini 1.5 flash model
+        # Get API key from environment variable
+        api_key = os.getenv('GEMINI_API_KEY')
+        if not api_key:
+            raise ValueError("GEMINI_API_KEY environment variable not set")
+        genai.configure(api_key=api_key)
+        self.model = genai.GenerativeModel('gemini-pro')  # Using gemini-pro for better medical responses
         self.thinking = False
-        self.initiallizer = 0
+        self.thinking_message = None
 
     def setup_ui(self):
         main_layout = BoxLayout(orientation='vertical', spacing=25)
@@ -66,10 +68,7 @@ class SymptomCheckerScreen(Screen):
             orientation='vertical', 
             spacing=10, 
             size_hint_y=None,
-            padding=(20, 10),
-            bold = True,
-            background_color = (255, 255, 255, 0),
-            multiline = True  
+            padding=(20, 10)
         )
         self.chat_layout.bind(minimum_height=self.chat_layout.setter('height'))
         self.chat_scroll.add_widget(self.chat_layout)
@@ -104,13 +103,16 @@ class SymptomCheckerScreen(Screen):
     def add_message(self, text, is_user=False):
         bubble = ChatBubble(text, is_user=is_user)
         self.chat_layout.add_widget(bubble)
+        if is_user:
+            self.chat_history.append({"role": "user", "parts": [text]})
+        else:
+            self.chat_history.append({"role": "model", "parts": [text]})
         Clock.schedule_once(lambda dt: self.chat_scroll.scroll_to(bubble), 0.1)
+        return bubble
 
     def send_message(self, instance):
         if self.thinking:
             return
-        else:
-            self.instance = instance
             
         user_input = self.input_field.text.strip()
         if not user_input:
@@ -119,21 +121,31 @@ class SymptomCheckerScreen(Screen):
         self.add_message(user_input, is_user=True)
         self.input_field.text = ''
         self.thinking = True
-        self.add_message("Thinking...", is_user=False)
+        self.thinking_message = self.add_message("Thinking...", is_user=False)
         
         Clock.schedule_once(lambda dt: self.generate_response(user_input), 0.1)
 
     def generate_response(self, user_input):
         try:
-            response = self.model.generate_content(
+            # Create a chat session with the model
+            chat = self.model.start_chat(history=self.chat_history)
+            response = chat.send_message(
                 f"Act as a medical assistant. The user says: {user_input}. "
                 "Provide a helpful response with possible causes and suggestions. "
-                "Keep it under 150 words and use simple language."
-                "Just try to be more specific about the consultation."
+                "Keep it under 150 words and use simple language. "
+                "Be specific about the consultation and include relevant medical advice."
             )
-            self.chat_layout.remove_widget(self.chat_layout.children[0])  # Remove "Thinking..."
+            
+            # Remove the thinking message
+            if self.thinking_message:
+                self.chat_layout.remove_widget(self.thinking_message)
+                self.thinking_message = None
+                
             self.add_message(response.text, is_user=False)
         except Exception as e:
+            if self.thinking_message:
+                self.chat_layout.remove_widget(self.thinking_message)
+                self.thinking_message = None
             self.add_message(f"Error: {str(e)}", is_user=False)
         finally:
             self.thinking = False
@@ -147,12 +159,13 @@ class SymptomCheckerScreen(Screen):
         self.input_field.hint_text = translations["type_symptoms"]
         self.send_btn.text = translations["send"]
         
-        for child in self.chat_layout.children:
-            if isinstance(child, ChatBubble) and child.text == "Thinking...":
-                child.text = translations["thinking"]
+        if self.thinking_message:
+            self.thinking_message.text = translations["thinking"]
 
     def on_enter(self):
         self.chat_layout.clear_widgets()
+        self.chat_history = []
         self.input_field.text = ''
-        self.thinking = True
+        self.thinking = False
+        self.thinking_message = None
         
