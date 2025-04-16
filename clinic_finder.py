@@ -2,7 +2,7 @@ from kivy.uix.screenmanager import Screen
 from kivy.uix.button import Button 
 from kivy.uix.label import Label  
 from kivy.uix.boxlayout import BoxLayout  
-from kivy.graphics import Color, Rectangle  
+from kivy.graphics import Color, Rectangle   
 from kivy.properties import StringProperty  
 from styles import apply_font
 import webbrowser 
