@@ -6,7 +6,7 @@ from kivy.graphics import Color, Rectangle
 from styles import apply_font
 
 class HealthTipsScreen(Screen):
-    def __init__(self, **kwargs):
+    def __init__(self, **kwargs): 
         super().__init__(**kwargs) 
         layout = BoxLayout(orientation="vertical", padding=20, spacing=20)    
         with layout.canvas.before:
