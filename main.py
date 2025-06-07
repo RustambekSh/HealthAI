@@ -4,7 +4,7 @@ from intro_screen import IntroScreen
 from main_menu import MainMenuScreen
 from symptom_checker import SymptomCheckerScreen
 from clinic_finder import ClinicFinderScreen
-from health_tips import HealthTipsScreen
+from health_tips import HealthTipsScreen 
 from languages import LANGUAGES
  
 class UzHealthAIApp(App):
